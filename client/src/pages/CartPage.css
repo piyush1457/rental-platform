@@ -1,0 +1,161 @@
+/* CartPage.css */
+
+.cart-container {
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffaf5;
+  max-width: 900px;
+  margin: auto;
+}
+.cart-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.empty-cart {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #777;
+}
+
+.cart-item {
+  display: flex;
+  gap: 20px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.cart-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-details {
+  flex: 1;
+}
+
+.item-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.item-price,
+.subtotal {
+  font-size: 14px;
+  color: #444;
+  margin-top: 4px;
+}
+
+.item-label {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #666;
+}
+
+.duration-input {
+  width: 60px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.total {
+  text-align: right;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #000;
+}
+
+.place-order-button {
+  display: block;
+  margin: 30px auto 0;
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.place-order-button:hover {
+  background-color: #43a047;
+}
+
+.order-success {
+  font-size: 1.5rem;
+  color: #2e7d32;
+  text-align: center;
+  margin-top: 50px;
+}
+.cart-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.clear-cart-button {
+  background-color: #f44336;
+  color: white;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clear-cart-button:hover {
+  background-color: #d32f2f;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fffaf5;
+  padding: 16px 32px;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff914d;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: #ffe1cc;
+}
