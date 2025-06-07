@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Rental = require('../models/Rental');
 
-// Cancel a rental
+
 router.patch('/:rentalId/cancel', async (req, res) => {
   const { rentalId } = req.params;
 
