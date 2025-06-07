@@ -10,22 +10,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
+
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/rentalPlatform', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-// User Schema & Model
+
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true, required: true },
-  password: { type: String, required: true }, // hashed password
+  password: { type: String, required: true },
 });
 const User = mongoose.model('User', userSchema);
 
-// Rental Schema & Model
 const rentalSchema = new mongoose.Schema({
-  rentalId: { type: String, unique: true, required: true }, // UUID for tracking
+  rentalId: { type: String, unique: true, required: true },
   items: [
     {
       name: String,
@@ -40,7 +39,7 @@ const rentalSchema = new mongoose.Schema({
     enum: ['placed', 'cancelled'],
     default: 'placed',
   },
-  cancellationId: { type: String, default: null }, // New UUID if cancelled
+  cancellationId: { type: String, default: null }, 
   createdAt: {
     type: Date,
     default: Date.now,
@@ -48,12 +47,8 @@ const rentalSchema = new mongoose.Schema({
 });
 const Rental = mongoose.model('Rental', rentalSchema);
 
-// JWT secret
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_here';
 
-// ---------- AUTH ROUTES ----------
-
-// POST /api/auth/login - Login user
 app.post('/api/auth/login', async (req, res) => {
   const { email, password } = req.body;
   console.log('Login attempt:', email);
@@ -73,7 +68,7 @@ app.post('/api/auth/login', async (req, res) => {
     console.log('Password from request:', typeof password, password);
     console.log('Password from DB:', typeof user.password, user.password);
 
-    // Now compare
+   
     const isMatch = await bcrypt.compare(password, user.password);
     console.log('Password match:', isMatch);
 
@@ -82,7 +77,7 @@ app.post('/api/auth/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
-    // Generate JWT token
+    
     const token = jwt.sign({ userId: user._id, email: user.email }, JWT_SECRET, {
       expiresIn: '1d',
     });
@@ -95,7 +90,6 @@ app.post('/api/auth/login', async (req, res) => {
 });
 
 
-// Optional: POST /api/auth/register to create new users (for testing, not mandatory)
 app.post('/api/auth/register', async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password)
@@ -117,9 +111,7 @@ app.post('/api/auth/register', async (req, res) => {
   }
 });
 
-// ---------- RENTAL ROUTES ----------
 
-// POST /api/rentals - Place Order
 app.post('/api/rentals', async (req, res) => {
   const { items, total } = req.body;
 
@@ -138,12 +130,11 @@ app.post('/api/rentals', async (req, res) => {
   }
 });
 
-// GET /api/rentals/:rentalId - Fetch order
+
 app.get('/api/rentals/:rentalId', async (req, res) => {
   try {
     let rental = await Rental.findOne({ rentalId: req.params.rentalId });
 
-    // If not found by rentalId, try cancellationId
     if (!rental) {
       rental = await Rental.findOne({ cancellationId: req.params.rentalId });
     }
@@ -156,7 +147,7 @@ app.get('/api/rentals/:rentalId', async (req, res) => {
   }
 });
 
-// PATCH /api/rentals/:rentalId/cancel - Cancel Order
+
 app.patch('/api/rentals/:rentalId/cancel', async (req, res) => {
   try {
     const rental = await Rental.findOne({ rentalId: req.params.rentalId });
@@ -184,6 +175,5 @@ app.patch('/api/rentals/:rentalId/cancel', async (req, res) => {
   }
 });
 
-// Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
