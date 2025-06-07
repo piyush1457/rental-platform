@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const User = require('./User'); // Make sure this path is correct
+const User = require('./User'); 
 require('dotenv').config();
 
-// Connect to MongoDB
+
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/rentalPlatform', {
-  // No need for deprecated options anymore with Mongoose 7+
+ 
 });
 
-// Create test user
+
 async function createTestUser() {
   try {
     const existing = await User.findOne({ email: 'test@example.com' });
@@ -30,7 +30,7 @@ async function createTestUser() {
   } catch (err) {
     console.error('Error creating test user:', err);
   } finally {
-    mongoose.disconnect(); // Clean disconnect
+    mongoose.disconnect();
   }
 }
 
