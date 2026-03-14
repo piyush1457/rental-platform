@@ -1,7 +1,6 @@
 // src/components/home/HeroSection.js
 import React from 'react';
 import './HeroSection.css';
-import HeroProductCard from './HeroProductCard';
 
 const HeroSection = () => {
   return (
