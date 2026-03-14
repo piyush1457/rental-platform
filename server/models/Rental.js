@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const rentalSchema = new mongoose.Schema({
   rentalId: { type: String, required: true, unique: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   cancellationId: { type: String, default: null },
   items: [
     {

@@ -1,0 +1,154 @@
+/* src/components/home/HowItWorksSection.css */
+.rk-how-it-works {
+  padding: 100px 0;
+  background-color: white;
+}
+
+.rk-hiw-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.rk-section-line.centered {
+  margin: 0 auto 20px;
+}
+
+.rk-hiw-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rk-hiw-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.rk-hiw-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+}
+
+.rk-hiw-icon-wrapper {
+  width: 96px;
+  height: 96px;
+  background: white;
+  border: 2px solid var(--primary-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-accent);
+  position: relative;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 20px rgba(255, 107, 0, 0.1);
+  transition: all var(--transition-speed) ease;
+}
+
+.rk-hiw-icon-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: rgba(255, 107, 0, 0.05);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.rk-hiw-icon-wrapper svg {
+  z-index: 1;
+}
+
+.rk-hiw-step:hover .rk-hiw-icon-wrapper {
+  transform: translateY(-8px);
+  background-color: var(--primary-accent);
+  color: white;
+}
+
+.rk-hiw-step:hover .rk-hiw-icon-wrapper::after {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.rk-hiw-number {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 32px;
+  height: 32px;
+  background-color: var(--text-main);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 3px solid white;
+  z-index: 2;
+}
+
+.rk-hiw-step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 12px 0;
+}
+
+.rk-hiw-step-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Connectors */
+.rk-hiw-connector {
+  flex: 0.5;
+  height: 96px; /* Match icon wrapper height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.rk-hiw-arrow {
+  width: 100%;
+  height: 2px;
+  background: dashed 2px #e0e0e0;
+  position: relative;
+}
+
+.rk-hiw-arrow::after {
+  content: '→';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #e0e0e0;
+  font-size: 1.5rem;
+  background: white;
+  line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rk-hiw-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .rk-hiw-connector {
+    display: none;
+  }
+}

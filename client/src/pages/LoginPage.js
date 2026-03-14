@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './LoginPage.css'; // Import custom CSS
 
 function LoginPage() {
@@ -22,11 +22,11 @@ function LoginPage() {
         body: JSON.stringify({ email: email.trim(), password: password.trim() }),
       });
 
-     if (!response.ok) {
-  const err = await response.json();
-  alert(err.error || 'Login failed');
-  return;
-}
+      if (!response.ok) {
+        const err = await response.json();
+        alert(err.error || 'Login failed');
+        return;
+      }
 
       const data = await response.json();
       localStorage.setItem('token', data.token);
@@ -56,6 +56,10 @@ function LoginPage() {
           required
         /><br />
         <button type="submit">Login</button>
+        <div style={{ marginTop: '15px' }}>
+          <span>Don't have an account? </span>
+          <Link to="/signup" style={{ color: '#2e8b57', textDecoration: 'none', fontWeight: 'bold' }}>Sign Up</Link>
+        </div>
       </form>
     </div>
   );

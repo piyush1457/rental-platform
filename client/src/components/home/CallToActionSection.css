@@ -1,0 +1,75 @@
+/* src/components/home/CallToActionSection.css */
+.rk-cta-section {
+  padding: 60px 24px;
+}
+
+.rk-cta-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--text-main) 0%, #333333 100%);
+  border-radius: 24px;
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Background pattern */
+.rk-cta-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.rk-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rk-cta-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.rk-cta-desc {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+.rk-cta-btn {
+  margin: 0 auto;
+}
+
+.rk-btn-icon {
+  margin-left: 8px;
+  transition: transform 0.2s;
+}
+
+.rk-cta-btn:hover .rk-btn-icon {
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .rk-cta-title {
+    font-size: 2rem;
+  }
+  .rk-cta-container {
+    padding: 40px 20px;
+  }
+}

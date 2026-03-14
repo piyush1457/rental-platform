@@ -1,0 +1,228 @@
+/* src/components/home/ProductCard.css */
+.rk-product-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid #e2e8f0; /* Subtle grayish border */
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); /* Modern soft shadow */
+  transition: all var(--transition-speed) ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.rk-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Deep elegant hover shadow */
+  border-color: #cbd5e1;
+}
+
+.rk-product-image-container {
+  width: 100%;
+  padding-top: 75%; /* 4:3 aspect ratio */
+  position: relative;
+  background-color: #f1f5f9;
+  overflow: hidden;
+  cursor: zoom-in; /* Indicate it can be clicked to enlarge */
+}
+
+.rk-product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Keep the whole product visible without cropping */
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 16px; /* Give the image some breathing room inside the gray box */
+}
+
+.rk-product-card:hover .rk-product-image {
+  transform: scale(1.05);
+}
+
+.rk-product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all var(--transition-speed) ease;
+}
+
+.rk-product-card:hover .rk-product-overlay {
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.rk-rent-btn {
+  background-color: var(--primary-accent);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.rk-product-card:hover .rk-rent-btn {
+  transform: translateY(0);
+}
+
+.rk-rent-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.rk-product-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.rk-product-header {
+  margin-bottom: 12px;
+}
+
+.rk-product-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rk-product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.rk-product-price .amount {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.rk-product-price .duration {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.rk-product-rating {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rk-product-rating .star {
+  color: #fbcf33;
+  font-size: 1.1rem;
+}
+
+/* Image Enlargement Modal */
+.rk-product-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out;
+  cursor: zoom-out;
+}
+
+.rk-product-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+}
+
+.rk-product-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.rk-product-modal-close:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+.rk-product-modal-image {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  background-color: #f8fafc;
+  padding: 32px;
+}
+
+.rk-product-modal-info {
+  padding: 24px;
+  background-color: white;
+  text-align: center;
+  border-top: 1px solid #f1f5f9;
+}
+
+.rk-product-modal-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+.rk-product-modal-info p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

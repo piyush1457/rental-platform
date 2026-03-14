@@ -1,0 +1,127 @@
+/* src/components/home/CategorySection.css */
+.rk-categories {
+  padding: 80px 0;
+  background-color: var(--bg-color);
+}
+
+.rk-header-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.rk-view-all {
+  color: var(--primary-accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+.rk-view-all::after {
+  content: '→';
+  margin-left: 6px;
+  transition: margin-left 0.2s;
+}
+
+.rk-view-all:hover::after {
+  margin-left: 10px;
+}
+
+.rk-category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.rk-category-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--soft-shadow);
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.rk-category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--primary-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.rk-category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--hover-shadow);
+}
+
+.rk-category-card:hover::before {
+  transform: scaleX(1);
+}
+
+.rk-category-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.rk-category-card:hover .rk-category-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.rk-category-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 12px 0;
+}
+
+.rk-category-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.rk-category-card:hover .rk-category-link {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--primary-accent);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .rk-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .rk-category-grid {
+    grid-template-columns: 1fr;
+  }
+  .rk-header-split {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

@@ -43,6 +43,10 @@ export const CartProvider = ({ children }) => {
     setCartItems(updated);
   };
 
+  const removeFromCart = (index) => {
+    setCartItems(cartItems.filter((_, i) => i !== index));
+  };
+
   const clearCart = () => setCartItems([]);
 
   return (
@@ -51,6 +55,7 @@ export const CartProvider = ({ children }) => {
         cartItems,
         addToCart,
         updateDuration,
+        removeFromCart,
         clearCart,
         cartMessage,
       }}

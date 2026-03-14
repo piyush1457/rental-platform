@@ -1,0 +1,115 @@
+/* src/components/layout/Footer.css */
+.rk-footer {
+  background-color: var(--card-bg);
+  border-top: 1px solid #f0f0f5;
+  padding: 60px 0 20px;
+  margin-top: 80px;
+}
+
+.rk-footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.rk-footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.rk-footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  margin-top: 0;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.rk-footer-desc {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+  max-width: 300px;
+}
+
+.rk-social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.rk-social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f7f8fc;
+  color: var(--text-main);
+  transition: all var(--transition-speed) ease;
+}
+
+.rk-social-links a:hover {
+  background-color: var(--primary-accent);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.rk-footer-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.rk-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rk-footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--transition-speed) ease;
+}
+
+.rk-footer-links a:hover {
+  color: var(--primary-accent);
+}
+
+.rk-footer-bottom {
+  border-top: 1px solid #f0f0f5;
+  padding-top: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rk-footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .brand-col {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .rk-footer-top {
+    grid-template-columns: 1fr;
+  }
+  .brand-col {
+    grid-column: span 1;
+  }
+}

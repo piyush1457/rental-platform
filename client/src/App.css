@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@400;600;800&display=swap');
+
+body {
+  font-family: 'Inter', 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  background: #f8fafc;
+  color: #222;
+}
+
+:root {
+  --primary-accent: #ff6b00;
+  --bg-color: #f8fafc;
+  --text-main: #222;
+}
+
+.rk-btn {
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 32px;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(255,107,0,0.08);
+  cursor: pointer;
+}
+.rk-btn-primary {
+  background: var(--primary-accent);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(255,107,0,0.12);
+}
+.rk-btn-primary:hover {
+  background: #ff7f2a;
+  box-shadow: 0 8px 32px rgba(255,107,0,0.18);
+}
+.rk-btn-secondary {
+  background: #fff;
+  color: var(--primary-accent);
+  border: 1px solid var(--primary-accent);
+}
+.rk-btn-secondary:hover {
+  background: #fff6e9;
+  color: #ff7f2a;
+  box-shadow: 0 4px 24px rgba(255,107,0,0.12);
+}

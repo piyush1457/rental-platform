@@ -5,6 +5,8 @@ import HomePage from './pages/HomePage';
 import Cart from './pages/CartPage';
 import RequestPage from './pages/RequestPage';
 import TrackOrderPage from './pages/TrackOrderPage';
+import SignupPage from './pages/SignupPage';
+import ProfilePage from './pages/ProfilePage';
 
 
 
@@ -22,6 +24,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/request" element={<RequestPage />} />
           <Route path="/track" element={<TrackOrderPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           {/* Add other routes here */}
         </Routes>
       </Router>
